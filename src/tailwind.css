@@ -1,0 +1,61 @@
+/* tailwind.css */
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
+.game {
+  justify-content: center;
+}
+.title {
+  padding: 10px;
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+}
+.status {
+  padding: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  height: 300px;
+}
+.square {
+  background-color: #4FD1C5;
+  color: white;
+  font-size: 24px;
+  width: 100px;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+.square:hover {
+  background-color: #38B2AC;
+}
+
+.restart {
+  padding-top: 20;
+  align-content: center;
+
+}
+.restart-button {
+  background-color: #1E40AF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.restart-button:hover {
+  background-color: #1D4ED8;
+}

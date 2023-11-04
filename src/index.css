@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 20px;
+}
+
+.square {
+  
+  border: 1px solid black;
+
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  width: 105px;
+  height: 105px;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.restart {
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.game {
+  display: flex;
+}

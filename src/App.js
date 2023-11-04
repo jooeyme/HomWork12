@@ -1,13 +1,22 @@
 
 import * as React from 'react';
+import './tailwind.css';
 
 function Board() {
-  const squares = Array(9).fill(null);
+  const [squares, setSquares] = React.useState(Array(9).fill(null));
+
   function selectSquare(square) {
+    if (calculateWinner(squares) || squares[square]) {
+      return;
+    }
+    const squaresCopy = [...squares];
+    squaresCopy[square] = calculateNextValue(squares);
+    setSquares(squaresCopy);
 
   }
 
   function restart() {
+    setSquares(Array(9).fill(null));
   }
 
   function renderSquare(i) {
@@ -18,35 +27,42 @@ function Board() {
     );
   }
 
+  const winner = calculateWinner(squares);
+  const nextValue = calculateNextValue(squares);
+  const status = calculateStatus(winner, squares, nextValue);
+
+
   return (
-    <div>
-      <div >STATUS</div>
-      <div >
+    <div className="p-4">
+      <div className='title'><h1>TIC TAC TOE</h1></div>
+      <div className="status">{status}</div>
+      <div className="board" >
         {renderSquare(0)}
         {renderSquare(1)}
         {renderSquare(2)}
-      </div>
-      <div >
         {renderSquare(3)}
         {renderSquare(4)}
         {renderSquare(5)}
-      </div>
-      <div >
         {renderSquare(6)}
         {renderSquare(7)}
         {renderSquare(8)}
       </div>
-      <button onClick={restart}>
-        restart
-      </button>
+      <div className="restart">
+        <button
+          className="restart-button"
+          onClick={restart}
+        >
+          Restart
+        </button>
+      </div>
     </div>
   );
 }
 
 function Game() {
   return (
-    <div >
-      <div >
+    <div className="game">
+      <div className="game-board">
         <Board />
       </div>
     </div>
